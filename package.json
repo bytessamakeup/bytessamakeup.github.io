@@ -1,0 +1,15 @@
+{
+  "name": "bytessamakeup",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "By Tessa Makeup - Makeup Artist Lumajang Landing Page",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.16.7"
+  }
+}

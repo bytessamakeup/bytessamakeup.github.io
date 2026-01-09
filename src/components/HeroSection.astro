@@ -1,0 +1,375 @@
+---
+/**
+ * Hero Section: "The Timeless Bloom"
+ * First impression: Luxurious, Classic, Face-focused
+ */
+---
+
+<section class="hero" id="hero">
+  <!-- Light sweep effect -->
+  <div class="hero-light-sweep"></div>
+  
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-tagline animate-fadeInUp">Makeup Artist Lumajang</span>
+      <h1 class="hero-title animate-fadeInUp" style="animation-delay: 0.2s;">
+        Pesona Anggun<br>
+        <span class="accent-text">di Hari Istimewa</span>
+      </h1>
+      <p class="hero-description animate-fadeInUp" style="animation-delay: 0.4s;">
+        Makeup Artist dengan sentuhan flawless yang tahan lama.<br>
+        Mengubah momen bahagiamu menjadi kenangan abadi.
+      </p>
+      <div class="hero-cta animate-fadeInUp" style="animation-delay: 0.6s;">
+        <a href="#services" class="btn btn-primary">Lihat Paket Wedding</a>
+        <a href="#contact" class="btn btn-outline">Konsultasi Gratis</a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper animate-bloom">
+      <!-- Rose Frame Circle -->
+      <div class="rose-frame">
+        <svg class="rose-frame-svg" viewBox="-20 -20 440 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main circle frame -->
+          <circle cx="200" cy="200" r="175" stroke="url(#goldGradient)" stroke-width="2" fill="none"/>
+          <circle cx="200" cy="200" r="165" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.5"/>
+          
+          <!-- Top rose decoration -->
+          <g class="rose" transform="translate(200, 25)">
+            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5"/>
+            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A"/>
+            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A"/>
+            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4"/>
+          </g>
+          
+          <!-- Right rose decoration -->
+          <g class="rose" transform="translate(375, 200)">
+            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(90)"/>
+            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(90)"/>
+            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(90)"/>
+          </g>
+          
+          <!-- Bottom rose decoration -->
+          <g class="rose" transform="translate(200, 375)">
+            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(180)"/>
+            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(180)"/>
+            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(180)"/>
+          </g>
+          
+          <!-- Left rose decoration -->
+          <g class="rose" transform="translate(25, 200)">
+            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(-90)"/>
+            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(-90)"/>
+            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(-90)"/>
+            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(-90)"/>
+          </g>
+          
+          <!-- Small decorative dots -->
+          <circle cx="200" cy="10" r="3" fill="#C9A227" opacity="0.6"/>
+          <circle cx="390" cy="200" r="3" fill="#C9A227" opacity="0.6"/>
+          <circle cx="200" cy="390" r="3" fill="#C9A227" opacity="0.6"/>
+          <circle cx="10" cy="200" r="3" fill="#C9A227" opacity="0.6"/>
+          
+          <!-- Corner leaves -->
+          <path d="M130 50 Q150 70 170 50 Q150 30 130 50" fill="#6B8E6B" opacity="0.5"/>
+          <path d="M230 50 Q250 70 270 50 Q250 30 230 50" fill="#6B8E6B" opacity="0.5"/>
+          
+          <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#C9A227"/>
+              <stop offset="50%" style="stop-color:#E0C05A"/>
+              <stop offset="100%" style="stop-color:#C9A227"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        <!-- Bride placeholder image -->
+        <div class="hero-image">
+          <div class="hero-image-placeholder">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="35" r="20" fill="#D4A5A5"/>
+              <path d="M20 85 Q50 60 80 85" fill="#D4A5A5"/>
+              <circle cx="50" cy="35" r="15" fill="#E8C4C4"/>
+            </svg>
+            <span>Foto Pengantin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5rem 1rem 3rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  }
+
+  /* Light sweep animation */
+  .hero-light-sweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: lightSweep 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-tagline {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--dusty-rose-dark);
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--dusty-rose);
+    border-radius: 50px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title .accent-text {
+    display: block;
+    font-size: 0.85em;
+    margin-top: 0.25rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    color: var(--warm-grey);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-description br {
+    display: none;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Hero Image with Rose Frame */
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+  }
+
+  .rose-frame {
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1;
+  }
+
+  .rose-frame-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .rose {
+    animation: bloom 1.5s ease-out forwards;
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  .rose:nth-of-type(1) { animation-delay: 0.2s; }
+  .rose:nth-of-type(2) { animation-delay: 0.4s; }
+  .rose:nth-of-type(3) { animation-delay: 0.6s; }
+  .rose:nth-of-type(4) { animation-delay: 0.8s; }
+
+  .hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dusty-rose-light), var(--cream-dark));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--deep-maroon);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .hero-image-placeholder svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+  }
+
+  /* Scroll Indicator - hidden on mobile */
+  .scroll-indicator {
+    display: none;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--warm-grey-light);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--antique-gold), transparent);
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Tablet */
+  @media (min-width: 600px) {
+    .hero {
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .rose-frame {
+      max-width: 280px;
+    }
+
+    .hero-cta {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .hero-cta .btn {
+      width: auto;
+      max-width: none;
+    }
+
+    .hero-description br {
+      display: block;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 968px) {
+    .hero {
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+      gap: 4rem;
+    }
+
+    .hero-content {
+      order: 1;
+      padding-right: 2rem;
+    }
+
+    .hero-image-wrapper {
+      order: 2;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+    }
+
+    .hero-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      justify-content: flex-start;
+    }
+
+    .rose-frame {
+      max-width: 380px;
+    }
+
+    .hero-image-placeholder {
+      font-size: 1rem;
+    }
+
+    .hero-image-placeholder svg {
+      width: 70px;
+      height: 70px;
+    }
+
+    .scroll-indicator {
+      display: flex;
+    }
+  }
+</style>

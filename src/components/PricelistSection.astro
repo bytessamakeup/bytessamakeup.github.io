@@ -1,0 +1,595 @@
+---
+/**
+ * Pricelist Section: "Investment in Beauty"
+ * Tabbed pricing display with elegant cards
+ */
+
+const priceCategories = [
+  {
+    id: 'intimate',
+    name: 'Akad Intimate',
+    description: 'Paket spesial untuk akad atau pemberkatan dengan suasana intim',
+    packages: [
+      {
+        name: 'Intimate 1',
+        price: '1.000.000',
+        features: [
+          'Makeup Akad',
+          'Kebaya/Dress Sepasang',
+          'Melati Asli',
+          'Free Adat & Aksesoris',
+          'Free Request Look',
+          'Henna & Fake Nails',
+          'Free Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Intimate 2',
+        price: '2.500.000',
+        features: [
+          'Makeup Akad',
+          'Dekorasi 2M Indoor',
+          'Kebaya/Dress Sepasang',
+          'Free Request Model Dekor',
+          'Free Melati',
+          'Free Soflens',
+          'Henna & Nails',
+        ],
+        popular: true,
+      },
+      {
+        name: 'Intimate 3',
+        price: '3.800.000',
+        features: [
+          'Makeup Akad',
+          'Dekorasi 2M Indoor',
+          'Kebaya & Dress Sepasang',
+          'Free Request Model Dekor',
+          'Free Melati & Soflens',
+          'Fotografer',
+          'Henna & Nails',
+        ],
+        popular: false,
+      },
+    ],
+  },
+  {
+    id: 'wedding',
+    name: 'Akad & Resepsi',
+    description: 'Paket lengkap untuk hari pernikahan sempurna Anda',
+    packages: [
+      {
+        name: 'Paket 1',
+        price: '5.000.000',
+        features: [
+          'Makeup Wedding',
+          'Kebaya/Dress 2 Pasang',
+          'Dekorasi 4 Meter',
+          'Melati Asli',
+          'Welcome Sign & Pintu Dekor',
+          'Makeup Keluarga & Besan',
+          'Free Adat & Aksesoris',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Paket 2',
+        price: '5.500.000',
+        features: [
+          'Makeup Wedding',
+          'Kebaya/Dress 3 Pasang',
+          'Dekorasi 4 Meter + Janur',
+          'Dalang/MC',
+          'Welcome Sign & Pintu Dekor',
+          'Makeup Keluarga & Besan',
+          'Free Adat & Aksesoris',
+        ],
+        popular: true,
+      },
+      {
+        name: 'Paket 3',
+        price: '7.000.000',
+        features: [
+          'Semua di Paket 2',
+          'Fotografer',
+          'Dekorasi 4 Meter',
+          'Janur 4 Pasang',
+          'Kembar Mayang',
+          'Makeup Keluarga & Besan',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Paket 4',
+        price: '8.000.000',
+        features: [
+          'Semua di Paket 3',
+          'Dekorasi 6 Meter',
+          'Full Package Lengkap',
+          'Fotografer Pro',
+          'Semua Aksesoris Premium',
+        ],
+        popular: false,
+      },
+    ],
+  },
+  {
+    id: 'prewedding',
+    name: 'Prewedding',
+    description: 'Abadikan momen indah sebelum hari H',
+    packages: [
+      {
+        name: 'Only Makeup',
+        price: '250.000',
+        features: [
+          'Makeup Prewedding',
+          'Include Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Package 1',
+        price: '350.000',
+        features: [
+          'Makeup Prewedding',
+          'Kebaya & Beskap Sepasang',
+          'Heels & Aksesoris',
+          'Hijab',
+          'Include Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Package 2',
+        price: '450.000',
+        features: [
+          'Makeup Prewedding',
+          'Dress & Jas Sepasang',
+          'Heels & Aksesoris',
+          'Hijab',
+          'Include Soflens',
+        ],
+        popular: true,
+      },
+      {
+        name: 'Package 3',
+        price: '800.000',
+        features: [
+          'Makeup Prewedding',
+          'Kebaya & Beskap Lengkap',
+          'Heels & Aksesoris',
+          'Fotografer All File',
+          'Hijab & Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Package 4',
+        price: '900.000',
+        features: [
+          'Makeup Prewedding',
+          'Dress & Jas Lengkap',
+          'Heels & Aksesoris',
+          'Fotografer All File',
+          'Hijab & Soflens',
+        ],
+        popular: false,
+      },
+    ],
+  },
+  {
+    id: 'engagement',
+    name: 'Engagement',
+    description: 'Tampil memukau di hari lamaran',
+    packages: [
+      {
+        name: 'Only Makeup',
+        price: '200.000',
+        features: [
+          'Makeup Engagement',
+          'Include Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Package 1',
+        price: '350.000',
+        features: [
+          'Makeup Engagement',
+          'Kebaya Sepasang Couple',
+          'Heels & Aksesoris',
+          'Hijab & Soflens',
+        ],
+        popular: false,
+      },
+      {
+        name: 'Package 2',
+        price: '1.450.000',
+        features: [
+          'Makeup Engagement',
+          'Kebaya Sepasang Couple',
+          'Heels & Aksesoris',
+          'Dekorasi Indoor 2M',
+          'Hijab & Soflens',
+        ],
+        popular: true,
+      },
+      {
+        name: 'Package 3',
+        price: '1.950.000',
+        features: [
+          'Makeup Engagement',
+          'Kebaya Sepasang Couple',
+          'Heels & Aksesoris',
+          'Dekorasi Indoor 2M',
+          'Fotografer',
+          'Hijab & Soflens',
+        ],
+        popular: false,
+      },
+    ],
+  },
+];
+---
+
+<section class="pricelist" id="pricelist">
+  <div class="pricelist-container">
+    <div class="pricelist-header">
+      <span class="pricelist-label">Investasi Kecantikan</span>
+      <h2 class="pricelist-title">Pilihan Paket</h2>
+      <div class="floral-divider"></div>
+      <p class="pricelist-subtitle">
+        Harga transparan untuk setiap momen spesialmu
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="pricelist-tabs" role="tablist">
+      {priceCategories.map((cat, index) => (
+        <button 
+          class={`tab-btn ${index === 0 ? 'active' : ''}`}
+          data-tab={cat.id}
+          role="tab"
+          aria-selected={index === 0 ? 'true' : 'false'}
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- Category Content -->
+    {priceCategories.map((category, catIndex) => (
+      <div 
+        class={`pricelist-content ${catIndex === 0 ? 'active' : ''}`}
+        data-content={category.id}
+        role="tabpanel"
+      >
+        <p class="category-description">{category.description}</p>
+        
+        <div class={`price-grid price-grid--${category.packages.length}`}>
+          {category.packages.map((pkg) => (
+            <div class={`price-card ${pkg.popular ? 'price-card--popular' : ''}`}>
+              {pkg.popular && <span class="popular-badge">Populer</span>}
+              <h3 class="price-name">{pkg.name}</h3>
+              <div class="price-amount">
+                <span class="price-currency">Rp</span>
+                <span class="price-value">{pkg.price}</span>
+              </div>
+              <ul class="price-features">
+                {pkg.features.map((feature) => (
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a href="#contact" class="btn btn-outline price-btn">
+                Pilih Paket
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="pricelist-note">
+      <p>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        Harga dapat berubah sewaktu-waktu. Hubungi kami untuk informasi terbaru.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricelist {
+    padding: var(--section-padding);
+    background: var(--white);
+    position: relative;
+  }
+
+  .pricelist-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .pricelist-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .pricelist-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--dusty-rose-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .pricelist-title {
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+  }
+
+  .pricelist-subtitle {
+    font-size: 0.95rem;
+    color: var(--warm-grey);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Tabs */
+  .pricelist-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tab-btn {
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--warm-grey);
+    background: transparent;
+    border: 1px solid var(--cream-dark);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .tab-btn:hover {
+    border-color: var(--dusty-rose);
+    color: var(--deep-maroon);
+  }
+
+  .tab-btn.active {
+    background: var(--dusty-rose);
+    border-color: var(--dusty-rose);
+    color: var(--white);
+  }
+
+  /* Content */
+  .pricelist-content {
+    display: none;
+  }
+
+  .pricelist-content.active {
+    display: block;
+    animation: fadeInUp 0.4s ease-out;
+  }
+
+  .category-description {
+    text-align: center;
+    color: var(--warm-grey);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Price Grid */
+  .price-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  /* Price Card */
+  .price-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    border: 2px solid transparent;
+    transition: var(--transition-smooth);
+  }
+
+  .price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .price-card--popular {
+    border-color: var(--antique-gold);
+    background: linear-gradient(135deg, var(--cream) 0%, rgba(201, 162, 39, 0.08) 100%);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--antique-gold);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+  }
+
+  .price-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--deep-maroon);
+    margin-bottom: 0.75rem;
+  }
+
+  .price-amount {
+    margin-bottom: 1rem;
+  }
+
+  .price-currency {
+    font-size: 0.9rem;
+    color: var(--warm-grey);
+    vertical-align: top;
+  }
+
+  .price-value {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--deep-maroon);
+  }
+
+  .price-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+
+  .price-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--warm-grey);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .price-features svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--dusty-rose);
+    margin-top: 2px;
+  }
+
+  .price-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* Note */
+  .pricelist-note {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .pricelist-note p {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--warm-grey-light);
+  }
+
+  .pricelist-note svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (min-width: 480px) {
+    .price-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .pricelist-tabs {
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .price-grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price-grid--4,
+    .price-grid--5 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .price-grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price-grid--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .price-grid--5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .price-card {
+      padding: 2rem;
+    }
+
+    .price-value {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.pricelist-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-tab');
+      
+      // Update tabs
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      
+      // Update content
+      contents.forEach(content => {
+        content.classList.remove('active');
+        if (content.getAttribute('data-content') === targetId) {
+          content.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,270 @@
+---
+/**
+ * Portfolio Section: "Gallery of Roses"
+ * Grid collage with before-after and falling petals
+ */
+
+const portfolioItems = [
+  { id: 1, type: 'wedding', label: 'Wedding Adat', size: 'large' },
+  { id: 2, type: 'modern', label: 'Modern Look', size: 'small' },
+  { id: 3, type: 'eye', label: 'Eye Detail', size: 'small' },
+  { id: 4, type: 'engagement', label: 'Engagement', size: 'medium' },
+  { id: 5, type: 'prewedding', label: 'Prewedding', size: 'medium' },
+  { id: 6, type: 'graduation', label: 'Graduation', size: 'small' },
+];
+---
+
+<section class="portfolio" id="portfolio">
+  <!-- Falling petals -->
+  <div class="portfolio-petals" aria-hidden="true">
+    <div class="portfolio-petal portfolio-petal-1"></div>
+    <div class="portfolio-petal portfolio-petal-2"></div>
+  </div>
+
+  <div class="portfolio-container">
+    <div class="portfolio-header">
+      <span class="portfolio-label">Portfolio</span>
+      <h2 class="portfolio-title">Gallery of Roses</h2>
+      <div class="floral-divider"></div>
+      <p class="portfolio-subtitle">
+        Bukti cinta kami — Kumpulan senyum bahagia dari klien By Tessa Makeup
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+      {portfolioItems.map((item) => (
+        <div class={`portfolio-item portfolio-item--${item.size}`}>
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="5" width="90" height="90" rx="8" fill="#D4A5A5"/>
+                <circle cx="50" cy="35" r="18" fill="#E8C4C4"/>
+                <ellipse cx="50" cy="70" rx="25" ry="15" fill="#E8C4C4"/>
+              </svg>
+              <span>{item.label}</span>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">{item.label}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="portfolio-cta">
+      <a href="https://instagram.com/bytessamakeup" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Lihat Lebih Banyak di Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: 8rem 2rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Falling petals */
+  .portfolio-petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .portfolio-petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--deep-maroon);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.15;
+    animation: petalFall 15s linear infinite;
+  }
+
+  .portfolio-petal-1 {
+    left: 20%;
+    animation-delay: 2s;
+  }
+
+  .portfolio-petal-2 {
+    left: 70%;
+    animation-delay: 8s;
+    animation-duration: 18s;
+  }
+
+  .portfolio-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .portfolio-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .portfolio-subtitle {
+    font-size: 1.05rem;
+    color: var(--warm-grey);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Portfolio Grid */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 1.5rem;
+  }
+
+  .portfolio-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .portfolio-item--large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .portfolio-item--medium {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .portfolio-item--small {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .portfolio-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .portfolio-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dusty-rose-light), var(--cream-dark));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--deep-maroon);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1rem;
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-placeholder svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(92, 46, 46, 0.9), transparent);
+    transform: translateY(100%);
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+  }
+
+  .portfolio-tag {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* CTA */
+  .portfolio-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .portfolio-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .portfolio-item--large,
+    .portfolio-item--medium {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .portfolio-item {
+      aspect-ratio: 1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .portfolio {
+      padding: 5rem 1rem;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

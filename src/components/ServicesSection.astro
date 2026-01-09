@@ -1,0 +1,307 @@
+---
+/**
+ * Services Section: "The Royal Offerings"
+ * 4 service cards with masking reveal hover effect
+ */
+
+const services = [
+  {
+    id: 'wedding',
+    title: 'The Wedding',
+    description: 'Riasan akad & resepsi yang manglingi dan tahan hingga akhir pesta.',
+    category: 'Pernikahan',
+  },
+  {
+    id: 'engagement',
+    title: 'The Engagement',
+    description: 'Tampilan manis dan segar untuk langkah awal menuju pelaminan.',
+    category: 'Lamaran',
+  },
+  {
+    id: 'prewedding',
+    title: 'Prewedding Story',
+    description: 'Riasan tema outdoor atau indoor yang menyatu dengan konsep cerita cintamu.',
+    category: 'Prewedding',
+  },
+  {
+    id: 'graduation',
+    title: 'Graduation & Party',
+    description: 'Tampil stand-out dan percaya diri di momen kelulusan atau acara spesial.',
+    category: 'Wisuda & Pesta',
+  },
+];
+---
+
+<section class="services" id="services">
+  <div class="services-container">
+    <div class="services-header">
+      <span class="services-label">Layanan Kami</span>
+      <h2 class="services-title">The Royal Offerings</h2>
+      <div class="floral-divider"></div>
+      <p class="services-subtitle">
+        Pilihan paket makeup yang disesuaikan dengan kebutuhan acara istimewa Anda
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <div class="service-card" style={`animation-delay: ${index * 0.15}s`}>
+          <div class="service-image">
+            <div class="service-image-placeholder">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="80" height="80" rx="10" fill="#D4A5A5"/>
+                <circle cx="50" cy="40" r="15" fill="#E8C4C4"/>
+                <path d="M25 70 Q50 50 75 70" stroke="#B88A8A" stroke-width="3" fill="none"/>
+              </svg>
+              <span>{service.category}</span>
+            </div>
+            
+            <!-- Gold floral overlay for masking effect -->
+            <div class="service-overlay">
+              <svg class="overlay-pattern" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id={`floralPattern-${service.id}`} x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#C9A227" stroke-width="0.5"/>
+                    <circle cx="25" cy="25" r="10" fill="none" stroke="#C9A227" stroke-width="0.5"/>
+                    <path d="M25 5 Q30 15 25 25 Q20 15 25 5" fill="#C9A227" opacity="0.3"/>
+                    <path d="M25 45 Q30 35 25 25 Q20 35 25 45" fill="#C9A227" opacity="0.3"/>
+                    <path d="M5 25 Q15 30 25 25 Q15 20 5 25" fill="#C9A227" opacity="0.3"/>
+                    <path d="M45 25 Q35 30 25 25 Q35 20 45 25" fill="#C9A227" opacity="0.3"/>
+                  </pattern>
+                </defs>
+                <rect width="200" height="200" fill={`url(#floralPattern-${service.id})`}/>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="service-content">
+            <span class="service-category">{service.category}</span>
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            <a href="#contact" class="service-link">
+              <span>Lihat Detail</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--section-padding);
+    background: var(--cream);
+    position: relative;
+  }
+
+  .services-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--dusty-rose-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .services-title {
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+  }
+
+  .services-subtitle {
+    font-size: 0.95rem;
+    color: var(--warm-grey);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  /* Service Card */
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Service Image */
+  .service-image {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .service-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dusty-rose-light), var(--cream-dark));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--deep-maroon);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+  }
+
+  .service-image-placeholder svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  /* Gold floral overlay - masking reveal effect */
+  .service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 247, 242, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    pointer-events: none;
+  }
+
+  .overlay-pattern {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  .service-card:hover .service-overlay {
+    opacity: 0;
+  }
+
+  .service-card:hover .service-image-placeholder {
+    transform: scale(1.05);
+  }
+
+  /* Service Content */
+  .service-content {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .service-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--dusty-rose-dark);
+    padding: 0.25rem 0.75rem;
+    background: var(--dusty-rose-light);
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--deep-maroon);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-description {
+    font-size: 0.85rem;
+    color: var(--warm-grey);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--antique-gold);
+  }
+
+  .service-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Responsive - Mobile First */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 480px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: none;
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .services-header {
+      margin-bottom: 3rem;
+    }
+
+    .services-grid {
+      gap: 1.5rem;
+    }
+
+    .service-content {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
