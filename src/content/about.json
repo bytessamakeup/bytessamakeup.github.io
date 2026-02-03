@@ -1,0 +1,24 @@
+{
+  "label": "Tentang Kami",
+  "title": "Sentuhan Personal",
+  "titleAccent": "untuk Anda",
+  "description1": "Setiap wajah memiliki ceritanya sendiri. Di By Tessa Makeup, kami tidak sekadar merias, tapi menonjolkan karakter terbaik Anda.",
+  "description2": "Melayani area Lumajang dan sekitarnya, kami memastikan hasil yang tidak hanya indah di kamera, tapi juga nyaman dan awet sepanjang acara.",
+  "features": [
+    {
+      "title": "Produk Premium",
+      "description": "Menggunakan produk berkualitas tinggi",
+      "icon": "shield"
+    },
+    {
+      "title": "Tahan Lama",
+      "description": "Makeup awet hingga 12+ jam",
+      "icon": "clock"
+    },
+    {
+      "title": "Pelayanan Ramah",
+      "description": "Konsultasi gratis sebelum hari H",
+      "icon": "heart"
+    }
+  ]
+}

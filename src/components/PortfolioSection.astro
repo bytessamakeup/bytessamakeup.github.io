@@ -3,15 +3,18 @@
  * Portfolio Section: "Gallery of Roses"
  * Grid collage with before-after and falling petals
  */
+import portfolioConfig from '../content/portfolioConfig.json';
+import siteSettings from '../content/siteSettings.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const portfolioItems = [
-  { id: 1, type: 'wedding', label: 'Wedding Adat', size: 'large' },
-  { id: 2, type: 'modern', label: 'Modern Look', size: 'small' },
-  { id: 3, type: 'eye', label: 'Eye Detail', size: 'small' },
-  { id: 4, type: 'engagement', label: 'Engagement', size: 'medium' },
-  { id: 5, type: 'prewedding', label: 'Prewedding', size: 'medium' },
-  { id: 6, type: 'graduation', label: 'Graduation', size: 'small' },
-];
+// Read all portfolio items from the content folder
+const portfolioDir = path.join(process.cwd(), 'src/content/portfolio');
+const portfolioFiles = fs.readdirSync(portfolioDir).filter(f => f.endsWith('.json'));
+const portfolioItems = portfolioFiles.map(f => {
+  const content = JSON.parse(fs.readFileSync(path.join(portfolioDir, f), 'utf-8'));
+  return content;
+}).sort((a, b) => (a.order || 0) - (b.order || 0));
 ---
 
 <section class="portfolio" id="portfolio">
@@ -23,12 +26,10 @@ const portfolioItems = [
 
   <div class="portfolio-container">
     <div class="portfolio-header">
-      <span class="portfolio-label">Portfolio</span>
-      <h2 class="portfolio-title">Gallery of Roses</h2>
+      <span class="portfolio-label">{portfolioConfig.label}</span>
+      <h2 class="portfolio-title">{portfolioConfig.title}</h2>
       <div class="floral-divider"></div>
-      <p class="portfolio-subtitle">
-        Bukti cinta kami — Kumpulan senyum bahagia dari klien By Tessa Makeup
-      </p>
+      <p class="portfolio-subtitle">{portfolioConfig.subtitle}</p>
     </div>
 
     <div class="portfolio-grid">
@@ -52,13 +53,13 @@ const portfolioItems = [
     </div>
 
     <div class="portfolio-cta">
-      <a href="https://instagram.com/bytessamakeup" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+      <a href={siteSettings.instagramUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
-        Lihat Lebih Banyak di Instagram
+        {portfolioConfig.instagramButtonText}
       </a>
     </div>
   </div>

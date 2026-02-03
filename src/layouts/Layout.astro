@@ -1,13 +1,17 @@
 ---
+import siteSettings from '../content/siteSettings.json';
+
 export interface Props {
   title?: string;
   description?: string;
 }
 
 const { 
-  title = "By Tessa Makeup | Makeup Artist Lumajang",
+  title = `${siteSettings.brandName} | Makeup Artist Lumajang`,
   description = "Makeup Artist profesional di Lumajang untuk Wedding, Engagement, Prewedding, dan Graduation. Sentuhan flawless yang tahan lama untuk hari istimewa Anda."
 } = Astro.props;
+
+const whatsappUrl = `https://wa.me/${siteSettings.whatsappNumber}?text=${encodeURIComponent(siteSettings.whatsappMessage)}`;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description}>
   <meta name="keywords" content="makeup artist lumajang, MUA lumajang, makeup wedding lumajang, makeup wisuda lumajang, makeup prewedding lumajang">
-  <meta name="author" content="By Tessa Makeup">
+  <meta name="author" content={siteSettings.brandName}>
   
   <!-- Open Graph -->
   <meta property="og:title" content={title}>
@@ -57,7 +61,7 @@ const {
   </main>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/6281234567890?text=Halo%20Kak%20Tessa,%20saya%20ingin%20konsultasi%20tentang%20makeup" 
+  <a href={whatsappUrl} 
      class="floating-whatsapp animate-glow" 
      target="_blank" 
      rel="noopener noreferrer"

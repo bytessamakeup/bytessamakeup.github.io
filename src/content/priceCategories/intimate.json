@@ -1,0 +1,50 @@
+{
+  "id": "Intimate",
+  "name": "Akad Intimate",
+  "description": "Paket spesial untuk akad atau pemberkatan dengan suasana intim",
+  "order": 1,
+  "packages": [
+    {
+      "name": "Intimate 1",
+      "price": "1.000.000",
+      "popular": false,
+      "features": [
+        "Makeup Akad",
+        "Kebaya/Dress Sepasang",
+        "Melati Asli",
+        "Free Adat & Aksesoris",
+        "Free Request Look",
+        "Henna & Fake Nails",
+        "Free Soflens"
+      ]
+    },
+    {
+      "name": "Intimate 2",
+      "price": "2.500.000",
+      "popular": true,
+      "features": [
+        "Makeup Akad",
+        "Dekorasi 2M Indoor",
+        "Kebaya/Dress Sepasang",
+        "Free Request Model Dekor",
+        "Free Melati",
+        "Free Soflens",
+        "Henna & Nails"
+      ]
+    },
+    {
+      "name": "Intimate 3",
+      "price": "3.800.000",
+      "popular": false,
+      "features": [
+        "Makeup Akad",
+        "Dekorasi 2M Indoor",
+        "Kebaya & Dress Sepasang",
+        "Free Request Model Dekor",
+        "Free Melati & Soflens",
+        "Fotografer",
+        "Henna & Nails"
+      ]
+    }
+  ]
+}

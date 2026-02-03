@@ -1,0 +1,61 @@
+{
+  "id": "Wedding",
+  "name": "Akad & Resepsi",
+  "description": "Paket lengkap untuk hari pernikahan sempurna Anda",
+  "order": 2,
+  "packages": [
+    {
+      "name": "Paket 1",
+      "price": "5.000.000",
+      "popular": false,
+      "features": [
+        "Makeup Wedding",
+        "Kebaya/Dress 2 Pasang",
+        "Dekorasi 4 Meter",
+        "Melati Asli",
+        "Welcome Sign & Pintu Dekor",
+        "Makeup Keluarga & Besan",
+        "Free Adat & Aksesoris"
+      ]
+    },
+    {
+      "name": "Paket 2",
+      "price": "5.500.000",
+      "popular": true,
+      "features": [
+        "Makeup Wedding",
+        "Kebaya/Dress 3 Pasang",
+        "Dekorasi 4 Meter + Janur",
+        "Dalang/MC",
+        "Welcome Sign & Pintu Dekor",
+        "Makeup Keluarga & Besan",
+        "Free Adat & Aksesoris"
+      ]
+    },
+    {
+      "name": "Paket 3",
+      "price": "7.000.000",
+      "popular": false,
+      "features": [
+        "Semua di Paket 2",
+        "Fotografer",
+        "Dekorasi 4 Meter",
+        "Janur 4 Pasang",
+        "Kembar Mayang",
+        "Makeup Keluarga & Besan"
+      ]
+    },
+    {
+      "name": "Paket 4",
+      "price": "8.000.000",
+      "popular": false,
+      "features": [
+        "Semua di Paket 3",
+        "Dekorasi 6 Meter",
+        "Full Package Lengkap",
+        "Fotografer Pro",
+        "Semua Aksesoris Premium"
+      ]
+    }
+  ]
+}

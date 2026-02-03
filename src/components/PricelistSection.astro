@@ -3,245 +3,26 @@
  * Pricelist Section: "Investment in Beauty"
  * Tabbed pricing display with elegant cards
  */
+import pricelistConfig from '../content/pricelistConfig.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const priceCategories = [
-  {
-    id: 'intimate',
-    name: 'Akad Intimate',
-    description: 'Paket spesial untuk akad atau pemberkatan dengan suasana intim',
-    packages: [
-      {
-        name: 'Intimate 1',
-        price: '1.000.000',
-        features: [
-          'Makeup Akad',
-          'Kebaya/Dress Sepasang',
-          'Melati Asli',
-          'Free Adat & Aksesoris',
-          'Free Request Look',
-          'Henna & Fake Nails',
-          'Free Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Intimate 2',
-        price: '2.500.000',
-        features: [
-          'Makeup Akad',
-          'Dekorasi 2M Indoor',
-          'Kebaya/Dress Sepasang',
-          'Free Request Model Dekor',
-          'Free Melati',
-          'Free Soflens',
-          'Henna & Nails',
-        ],
-        popular: true,
-      },
-      {
-        name: 'Intimate 3',
-        price: '3.800.000',
-        features: [
-          'Makeup Akad',
-          'Dekorasi 2M Indoor',
-          'Kebaya & Dress Sepasang',
-          'Free Request Model Dekor',
-          'Free Melati & Soflens',
-          'Fotografer',
-          'Henna & Nails',
-        ],
-        popular: false,
-      },
-    ],
-  },
-  {
-    id: 'wedding',
-    name: 'Akad & Resepsi',
-    description: 'Paket lengkap untuk hari pernikahan sempurna Anda',
-    packages: [
-      {
-        name: 'Paket 1',
-        price: '5.000.000',
-        features: [
-          'Makeup Wedding',
-          'Kebaya/Dress 2 Pasang',
-          'Dekorasi 4 Meter',
-          'Melati Asli',
-          'Welcome Sign & Pintu Dekor',
-          'Makeup Keluarga & Besan',
-          'Free Adat & Aksesoris',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Paket 2',
-        price: '5.500.000',
-        features: [
-          'Makeup Wedding',
-          'Kebaya/Dress 3 Pasang',
-          'Dekorasi 4 Meter + Janur',
-          'Dalang/MC',
-          'Welcome Sign & Pintu Dekor',
-          'Makeup Keluarga & Besan',
-          'Free Adat & Aksesoris',
-        ],
-        popular: true,
-      },
-      {
-        name: 'Paket 3',
-        price: '7.000.000',
-        features: [
-          'Semua di Paket 2',
-          'Fotografer',
-          'Dekorasi 4 Meter',
-          'Janur 4 Pasang',
-          'Kembar Mayang',
-          'Makeup Keluarga & Besan',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Paket 4',
-        price: '8.000.000',
-        features: [
-          'Semua di Paket 3',
-          'Dekorasi 6 Meter',
-          'Full Package Lengkap',
-          'Fotografer Pro',
-          'Semua Aksesoris Premium',
-        ],
-        popular: false,
-      },
-    ],
-  },
-  {
-    id: 'prewedding',
-    name: 'Prewedding',
-    description: 'Abadikan momen indah sebelum hari H',
-    packages: [
-      {
-        name: 'Only Makeup',
-        price: '250.000',
-        features: [
-          'Makeup Prewedding',
-          'Include Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Package 1',
-        price: '350.000',
-        features: [
-          'Makeup Prewedding',
-          'Kebaya & Beskap Sepasang',
-          'Heels & Aksesoris',
-          'Hijab',
-          'Include Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Package 2',
-        price: '450.000',
-        features: [
-          'Makeup Prewedding',
-          'Dress & Jas Sepasang',
-          'Heels & Aksesoris',
-          'Hijab',
-          'Include Soflens',
-        ],
-        popular: true,
-      },
-      {
-        name: 'Package 3',
-        price: '800.000',
-        features: [
-          'Makeup Prewedding',
-          'Kebaya & Beskap Lengkap',
-          'Heels & Aksesoris',
-          'Fotografer All File',
-          'Hijab & Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Package 4',
-        price: '900.000',
-        features: [
-          'Makeup Prewedding',
-          'Dress & Jas Lengkap',
-          'Heels & Aksesoris',
-          'Fotografer All File',
-          'Hijab & Soflens',
-        ],
-        popular: false,
-      },
-    ],
-  },
-  {
-    id: 'engagement',
-    name: 'Engagement',
-    description: 'Tampil memukau di hari lamaran',
-    packages: [
-      {
-        name: 'Only Makeup',
-        price: '200.000',
-        features: [
-          'Makeup Engagement',
-          'Include Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Package 1',
-        price: '350.000',
-        features: [
-          'Makeup Engagement',
-          'Kebaya Sepasang Couple',
-          'Heels & Aksesoris',
-          'Hijab & Soflens',
-        ],
-        popular: false,
-      },
-      {
-        name: 'Package 2',
-        price: '1.450.000',
-        features: [
-          'Makeup Engagement',
-          'Kebaya Sepasang Couple',
-          'Heels & Aksesoris',
-          'Dekorasi Indoor 2M',
-          'Hijab & Soflens',
-        ],
-        popular: true,
-      },
-      {
-        name: 'Package 3',
-        price: '1.950.000',
-        features: [
-          'Makeup Engagement',
-          'Kebaya Sepasang Couple',
-          'Heels & Aksesoris',
-          'Dekorasi Indoor 2M',
-          'Fotografer',
-          'Hijab & Soflens',
-        ],
-        popular: false,
-      },
-    ],
-  },
-];
+// Read all price categories from the content folder
+const categoriesDir = path.join(process.cwd(), 'src/content/priceCategories');
+const categoryFiles = fs.readdirSync(categoriesDir).filter(f => f.endsWith('.json'));
+const priceCategories = categoryFiles.map(f => {
+  const content = JSON.parse(fs.readFileSync(path.join(categoriesDir, f), 'utf-8'));
+  return content;
+}).sort((a, b) => (a.order || 0) - (b.order || 0));
 ---
 
 <section class="pricelist" id="pricelist">
   <div class="pricelist-container">
     <div class="pricelist-header">
-      <span class="pricelist-label">Investasi Kecantikan</span>
-      <h2 class="pricelist-title">Pilihan Paket</h2>
+      <span class="pricelist-label">{pricelistConfig.label}</span>
+      <h2 class="pricelist-title">{pricelistConfig.title}</h2>
       <div class="floral-divider"></div>
-      <p class="pricelist-subtitle">
-        Harga transparan untuk setiap momen spesialmu
-      </p>
+      <p class="pricelist-subtitle">{pricelistConfig.subtitle}</p>
     </div>
 
     <!-- Category Tabs -->
@@ -302,7 +83,7 @@ const priceCategories = [
           <line x1="12" y1="16" x2="12" y2="12"/>
           <line x1="12" y1="8" x2="12.01" y2="8"/>
         </svg>
-        Harga dapat berubah sewaktu-waktu. Hubungi kami untuk informasi terbaru.
+        {pricelistConfig.note}
       </p>
     </div>
   </div>

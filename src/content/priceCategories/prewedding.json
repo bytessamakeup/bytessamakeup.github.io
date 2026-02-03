@@ -1,0 +1,62 @@
+{
+  "id": "Prewedding",
+  "name": "Prewedding",
+  "description": "Abadikan momen indah sebelum hari H",
+  "order": 3,
+  "packages": [
+    {
+      "name": "Only Makeup",
+      "price": "250.000",
+      "popular": false,
+      "features": ["Makeup Prewedding", "Include Soflens"]
+    },
+    {
+      "name": "Package 1",
+      "price": "350.000",
+      "popular": false,
+      "features": [
+        "Makeup Prewedding",
+        "Kebaya & Beskap Sepasang",
+        "Heels & Aksesoris",
+        "Hijab",
+        "Include Soflens"
+      ]
+    },
+    {
+      "name": "Package 2",
+      "price": "450.000",
+      "popular": true,
+      "features": [
+        "Makeup Prewedding",
+        "Dress & Jas Sepasang",
+        "Heels & Aksesoris",
+        "Hijab",
+        "Include Soflens"
+      ]
+    },
+    {
+      "name": "Package 3",
+      "price": "800.000",
+      "popular": false,
+      "features": [
+        "Makeup Prewedding",
+        "Kebaya & Beskap Lengkap",
+        "Heels & Aksesoris",
+        "Fotografer All File",
+        "Hijab & Soflens"
+      ]
+    },
+    {
+      "name": "Package 4",
+      "price": "900.000",
+      "popular": false,
+      "features": [
+        "Makeup Prewedding",
+        "Dress & Jas Lengkap",
+        "Heels & Aksesoris",
+        "Fotografer All File",
+        "Hijab & Soflens"
+      ]
+    }
+  ]
+}

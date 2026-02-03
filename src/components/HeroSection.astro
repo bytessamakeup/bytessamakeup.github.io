@@ -3,26 +3,34 @@
  * Hero Section: "The Timeless Bloom"
  * First impression: Luxurious, Classic, Face-focused
  */
+import heroContent from '../content/hero.json';
+
+// Handle background image - use from CMS or default gradient
+const hasBackgroundImage = heroContent.backgroundImage && heroContent.backgroundImage !== null;
+const backgroundStyle = hasBackgroundImage 
+  ? `background-image: linear-gradient(135deg, rgba(250, 247, 242, 0.85) 0%, rgba(240, 232, 220, 0.85) 100%), url('${heroContent.backgroundImage}'); background-size: cover; background-position: center;`
+  : '';
+
+// Handle hero portrait image
+const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
 ---
 
-<section class="hero" id="hero">
+<section class="hero" id="hero" style={backgroundStyle}>
   <!-- Light sweep effect -->
   <div class="hero-light-sweep"></div>
   
   <div class="hero-container">
     <div class="hero-content">
-      <span class="hero-tagline animate-fadeInUp">Makeup Artist Lumajang</span>
+      <span class="hero-tagline animate-fadeInUp">{heroContent.tagline}</span>
       <h1 class="hero-title animate-fadeInUp" style="animation-delay: 0.2s;">
-        Pesona Anggun<br>
-        <span class="accent-text">di Hari Istimewa</span>
+        {heroContent.title}<br>
+        <span class="accent-text">{heroContent.titleAccent}</span>
       </h1>
-      <p class="hero-description animate-fadeInUp" style="animation-delay: 0.4s;">
-        Makeup Artist dengan sentuhan flawless yang tahan lama.<br>
-        Mengubah momen bahagiamu menjadi kenangan abadi.
+      <p class="hero-description animate-fadeInUp" style="animation-delay: 0.4s;" set:html={heroContent.description.replace(/\n/g, '<br>')}>
       </p>
       <div class="hero-cta animate-fadeInUp" style="animation-delay: 0.6s;">
-        <a href="#services" class="btn btn-primary">Lihat Paket Wedding</a>
-        <a href="#contact" class="btn btn-outline">Konsultasi Gratis</a>
+        <a href={heroContent.ctaPrimaryLink} class="btn btn-primary">{heroContent.ctaPrimaryText}</a>
+        <a href={heroContent.ctaSecondaryLink} class="btn btn-outline">{heroContent.ctaSecondaryText}</a>
       </div>
     </div>
 
@@ -85,16 +93,20 @@
           </defs>
         </svg>
         
-        <!-- Bride placeholder image -->
+        <!-- Hero Image (Portrait) -->
         <div class="hero-image">
-          <div class="hero-image-placeholder">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="35" r="20" fill="#D4A5A5"/>
-              <path d="M20 85 Q50 60 80 85" fill="#D4A5A5"/>
-              <circle cx="50" cy="35" r="15" fill="#E8C4C4"/>
-            </svg>
-            <span>Foto Pengantin</span>
-          </div>
+          {hasHeroImage ? (
+            <img src={heroContent.heroImage} alt="By Tessa Makeup" class="hero-portrait" />
+          ) : (
+            <div class="hero-image-placeholder">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="35" r="20" fill="#D4A5A5"/>
+                <path d="M20 85 Q50 60 80 85" fill="#D4A5A5"/>
+                <circle cx="50" cy="35" r="15" fill="#E8C4C4"/>
+              </svg>
+              <span>Foto Pengantin</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -164,6 +176,8 @@
     padding: 0.5rem 1rem;
     border: 1px solid var(--dusty-rose);
     border-radius: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
   }
 
   .hero-title {
@@ -246,6 +260,13 @@
     border-radius: 50%;
     overflow: hidden;
     z-index: 1;
+  }
+
+  .hero-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .hero-image-placeholder {

@@ -3,44 +3,26 @@
  * Services Section: "The Royal Offerings"
  * 4 service cards with masking reveal hover effect
  */
+import servicesConfig from '../content/servicesConfig.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const services = [
-  {
-    id: 'wedding',
-    title: 'The Wedding',
-    description: 'Riasan akad & resepsi yang manglingi dan tahan hingga akhir pesta.',
-    category: 'Pernikahan',
-  },
-  {
-    id: 'engagement',
-    title: 'The Engagement',
-    description: 'Tampilan manis dan segar untuk langkah awal menuju pelaminan.',
-    category: 'Lamaran',
-  },
-  {
-    id: 'prewedding',
-    title: 'Prewedding Story',
-    description: 'Riasan tema outdoor atau indoor yang menyatu dengan konsep cerita cintamu.',
-    category: 'Prewedding',
-  },
-  {
-    id: 'graduation',
-    title: 'Graduation & Party',
-    description: 'Tampil stand-out dan percaya diri di momen kelulusan atau acara spesial.',
-    category: 'Wisuda & Pesta',
-  },
-];
+// Read all services from the content folder
+const servicesDir = path.join(process.cwd(), 'src/content/services');
+const serviceFiles = fs.readdirSync(servicesDir).filter(f => f.endsWith('.json'));
+const services = serviceFiles.map(f => {
+  const content = JSON.parse(fs.readFileSync(path.join(servicesDir, f), 'utf-8'));
+  return content;
+}).sort((a, b) => (a.order || 0) - (b.order || 0));
 ---
 
 <section class="services" id="services">
   <div class="services-container">
     <div class="services-header">
-      <span class="services-label">Layanan Kami</span>
-      <h2 class="services-title">The Royal Offerings</h2>
+      <span class="services-label">{servicesConfig.label}</span>
+      <h2 class="services-title">{servicesConfig.title}</h2>
       <div class="floral-divider"></div>
-      <p class="services-subtitle">
-        Pilihan paket makeup yang disesuaikan dengan kebutuhan acara istimewa Anda
-      </p>
+      <p class="services-subtitle">{servicesConfig.subtitle}</p>
     </div>
 
     <div class="services-grid">
@@ -228,7 +210,7 @@ const services = [
     margin-bottom: 0.5rem;
   }
 
-  .service-title {
+  .service-content .service-title {
     font-family: var(--font-display);
     font-size: 1.1rem;
     font-weight: 600;

@@ -1,0 +1,50 @@
+{
+  "id": "Engagement",
+  "name": "Engagement",
+  "description": "Tampil memukau di hari lamaran",
+  "order": 4,
+  "packages": [
+    {
+      "name": "Only Makeup",
+      "price": "200.000",
+      "popular": false,
+      "features": ["Makeup Engagement", "Include Soflens"]
+    },
+    {
+      "name": "Package 1",
+      "price": "350.000",
+      "popular": false,
+      "features": [
+        "Makeup Engagement",
+        "Kebaya Sepasang Couple",
+        "Heels & Aksesoris",
+        "Hijab & Soflens"
+      ]
+    },
+    {
+      "name": "Package 2",
+      "price": "1.450.000",
+      "popular": true,
+      "features": [
+        "Makeup Engagement",
+        "Kebaya Sepasang Couple",
+        "Heels & Aksesoris",
+        "Dekorasi Indoor 2M",
+        "Hijab & Soflens"
+      ]
+    },
+    {
+      "name": "Package 3",
+      "price": "1.950.000",
+      "popular": false,
+      "features": [
+        "Makeup Engagement",
+        "Kebaya Sepasang Couple",
+        "Heels & Aksesoris",
+        "Dekorasi Indoor 2M",
+        "Fotografer",
+        "Hijab & Soflens"
+      ]
+    }
+  ]
+}
