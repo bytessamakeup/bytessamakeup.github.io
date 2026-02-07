@@ -3,13 +3,14 @@
  * Hero Section: "The Timeless Bloom"
  * First impression: Luxurious, Classic, Face-focused
  */
-import heroContent from '../content/hero.json';
+import heroContent from "../content/hero.json";
 
 // Handle background image - use from CMS or default gradient
-const hasBackgroundImage = heroContent.backgroundImage && heroContent.backgroundImage !== null;
-const backgroundStyle = hasBackgroundImage 
+const hasBackgroundImage =
+  heroContent.backgroundImage && heroContent.backgroundImage !== null;
+const backgroundStyle = hasBackgroundImage
   ? `background-image: linear-gradient(135deg, rgba(250, 247, 242, 0.8) 0%, rgba(240, 232, 220, 0.8) 100%), url('${heroContent.backgroundImage}'); background-size: cover; background-position: center;`
-  : '';
+  : "";
 
 // Handle hero portrait image
 const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
@@ -18,95 +19,214 @@ const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
 <section class="hero" id="hero" style={backgroundStyle}>
   <!-- Light sweep effect -->
   <div class="hero-light-sweep"></div>
-  
+
   <div class="hero-container">
     <div class="hero-content">
       <span class="hero-tagline animate-fadeInUp">{heroContent.tagline}</span>
       <h1 class="hero-title animate-fadeInUp" style="animation-delay: 0.2s;">
-        {heroContent.title}<br>
+        {heroContent.title}<br />
         <span class="accent-text">{heroContent.titleAccent}</span>
       </h1>
-      <p class="hero-description animate-fadeInUp" style="animation-delay: 0.4s;" set:html={heroContent.description.replace(/\n/g, '<br>')}>
-      </p>
+      <p
+        class="hero-description animate-fadeInUp"
+        style="animation-delay: 0.4s;"
+        set:html={heroContent.description.replace(/\n/g, "<br>")}
+      />
       <div class="hero-cta animate-fadeInUp" style="animation-delay: 0.6s;">
-        <a href={heroContent.ctaPrimaryLink} class="btn btn-primary">{heroContent.ctaPrimaryText}</a>
-        <a href={heroContent.ctaSecondaryLink} class="btn btn-outline">{heroContent.ctaSecondaryText}</a>
+        <a href={heroContent.ctaPrimaryLink} class="btn btn-primary"
+          >{heroContent.ctaPrimaryText}</a
+        >
+        <a href={heroContent.ctaSecondaryLink} class="btn btn-outline"
+          >{heroContent.ctaSecondaryText}</a
+        >
       </div>
     </div>
 
     <div class="hero-image-wrapper animate-bloom">
       <!-- Rose Frame Circle -->
       <div class="rose-frame">
-        <svg class="rose-frame-svg" viewBox="-20 -20 440 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          class="rose-frame-svg"
+          viewBox="-20 -20 440 440"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <!-- Main circle frame -->
-          <circle cx="200" cy="200" r="175" stroke="url(#goldGradient)" stroke-width="2" fill="none"/>
-          <circle cx="200" cy="200" r="165" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.5"/>
-          
+          <circle
+            cx="200"
+            cy="200"
+            r="175"
+            stroke="url(#goldGradient)"
+            stroke-width="2"
+            fill="none"></circle>
+          <circle
+            cx="200"
+            cy="200"
+            r="165"
+            stroke="url(#goldGradient)"
+            stroke-width="1"
+            fill="none"
+            opacity="0.5"></circle>
+
           <!-- Top rose decoration -->
           <g class="rose" transform="translate(200, 25)">
-            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5"/>
-            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A"/>
-            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A"/>
-            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4"/>
+            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5"></ellipse>
+            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A"></ellipse>
+            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A"></ellipse>
+            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4"></ellipse>
           </g>
-          
+
           <!-- Right rose decoration -->
           <g class="rose" transform="translate(375, 200)">
-            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(90)"/>
-            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(90)"/>
-            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(90)"/>
-            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(90)"/>
+            <ellipse
+              cx="0"
+              cy="0"
+              rx="18"
+              ry="12"
+              fill="#D4A5A5"
+              transform="rotate(90)"></ellipse>
+            <ellipse
+              cx="-8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(90)"></ellipse>
+            <ellipse
+              cx="8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(90)"></ellipse>
+            <ellipse
+              cx="0"
+              cy="-2"
+              rx="6"
+              ry="4"
+              fill="#E8C4C4"
+              transform="rotate(90)"></ellipse>
           </g>
-          
+
           <!-- Bottom rose decoration -->
           <g class="rose" transform="translate(200, 375)">
-            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(180)"/>
-            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(180)"/>
-            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(180)"/>
-            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(180)"/>
+            <ellipse
+              cx="0"
+              cy="0"
+              rx="18"
+              ry="12"
+              fill="#D4A5A5"
+              transform="rotate(180)"></ellipse>
+            <ellipse
+              cx="-8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(180)"></ellipse>
+            <ellipse
+              cx="8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(180)"></ellipse>
+            <ellipse
+              cx="0"
+              cy="-2"
+              rx="6"
+              ry="4"
+              fill="#E8C4C4"
+              transform="rotate(180)"></ellipse>
           </g>
-          
+
           <!-- Left rose decoration -->
           <g class="rose" transform="translate(25, 200)">
-            <ellipse cx="0" cy="0" rx="18" ry="12" fill="#D4A5A5" transform="rotate(-90)"/>
-            <ellipse cx="-8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(-90)"/>
-            <ellipse cx="8" cy="4" rx="10" ry="8" fill="#B88A8A" transform="rotate(-90)"/>
-            <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#E8C4C4" transform="rotate(-90)"/>
+            <ellipse
+              cx="0"
+              cy="0"
+              rx="18"
+              ry="12"
+              fill="#D4A5A5"
+              transform="rotate(-90)"></ellipse>
+            <ellipse
+              cx="-8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(-90)"></ellipse>
+            <ellipse
+              cx="8"
+              cy="4"
+              rx="10"
+              ry="8"
+              fill="#B88A8A"
+              transform="rotate(-90)"></ellipse>
+            <ellipse
+              cx="0"
+              cy="-2"
+              rx="6"
+              ry="4"
+              fill="#E8C4C4"
+              transform="rotate(-90)"></ellipse>
           </g>
-          
+
           <!-- Small decorative dots -->
-          <circle cx="200" cy="10" r="3" fill="#C9A227" opacity="0.6"/>
-          <circle cx="390" cy="200" r="3" fill="#C9A227" opacity="0.6"/>
-          <circle cx="200" cy="390" r="3" fill="#C9A227" opacity="0.6"/>
-          <circle cx="10" cy="200" r="3" fill="#C9A227" opacity="0.6"/>
-          
+          <circle cx="200" cy="10" r="3" fill="#C9A227" opacity="0.6"></circle>
+          <circle cx="390" cy="200" r="3" fill="#C9A227" opacity="0.6"></circle>
+          <circle cx="200" cy="390" r="3" fill="#C9A227" opacity="0.6"></circle>
+          <circle cx="10" cy="200" r="3" fill="#C9A227" opacity="0.6"></circle>
+
           <!-- Corner leaves -->
-          <path d="M130 50 Q150 70 170 50 Q150 30 130 50" fill="#6B8E6B" opacity="0.5"/>
-          <path d="M230 50 Q250 70 270 50 Q250 30 230 50" fill="#6B8E6B" opacity="0.5"/>
-          
+          <path
+            d="M130 50 Q150 70 170 50 Q150 30 130 50"
+            fill="#6B8E6B"
+            opacity="0.5"></path>
+          <path
+            d="M230 50 Q250 70 270 50 Q250 30 230 50"
+            fill="#6B8E6B"
+            opacity="0.5"></path>
+
           <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#C9A227"/>
-              <stop offset="50%" style="stop-color:#E0C05A"/>
-              <stop offset="100%" style="stop-color:#C9A227"/>
+            <linearGradient
+              id="goldGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color:#C9A227"></stop>
+              <stop offset="50%" style="stop-color:#E0C05A"></stop>
+              <stop offset="100%" style="stop-color:#C9A227"></stop>
             </linearGradient>
           </defs>
         </svg>
-        
+
         <!-- Hero Image (Portrait) -->
         <div class="hero-image">
-          {hasHeroImage ? (
-            <img src={heroContent.heroImage} alt="By Tessa Makeup" class="hero-portrait" />
-          ) : (
-            <div class="hero-image-placeholder">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="35" r="20" fill="#D4A5A5"/>
-                <path d="M20 85 Q50 60 80 85" fill="#D4A5A5"/>
-                <circle cx="50" cy="35" r="15" fill="#E8C4C4"/>
-              </svg>
-              <span>Foto Pengantin</span>
-            </div>
-          )}
+          {
+            hasHeroImage ? (
+              <img
+                src={heroContent.heroImage}
+                alt="By Tessa Makeup"
+                class="hero-portrait"
+              />
+            ) : (
+              <div class="hero-image-placeholder">
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="50" cy="35" r="20" fill="#D4A5A5" />
+                  <path d="M20 85 Q50 60 80 85" fill="#D4A5A5" />
+                  <circle cx="50" cy="35" r="15" fill="#E8C4C4" />
+                </svg>
+                <span>Foto Pengantin</span>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
@@ -128,7 +248,11 @@ const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
     position: relative;
     padding: 5rem 1rem 3rem;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--cream) 0%,
+      var(--cream-dark) 100%
+    );
   }
 
   /* Light sweep animation */
@@ -245,10 +369,18 @@ const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
     opacity: 0;
   }
 
-  .rose:nth-of-type(1) { animation-delay: 0.2s; }
-  .rose:nth-of-type(2) { animation-delay: 0.4s; }
-  .rose:nth-of-type(3) { animation-delay: 0.6s; }
-  .rose:nth-of-type(4) { animation-delay: 0.8s; }
+  .rose:nth-of-type(1) {
+    animation-delay: 0.2s;
+  }
+  .rose:nth-of-type(2) {
+    animation-delay: 0.4s;
+  }
+  .rose:nth-of-type(3) {
+    animation-delay: 0.6s;
+  }
+  .rose:nth-of-type(4) {
+    animation-delay: 0.8s;
+  }
 
   .hero-image {
     position: absolute;
@@ -272,7 +404,11 @@ const hasHeroImage = heroContent.heroImage && heroContent.heroImage !== null;
   .hero-image-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--dusty-rose-light), var(--cream-dark));
+    background: linear-gradient(
+      135deg,
+      var(--dusty-rose-light),
+      var(--cream-dark)
+    );
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -3,7 +3,7 @@
  * About Section: "The Artist's Touch"
  * Personal introduction with parallax effect
  */
-import aboutContent from '../content/about.json';
+import aboutContent from "../content/about.json";
 
 // Icon mapping
 const iconMap: Record<string, string> = {
@@ -17,24 +17,50 @@ const iconMap: Record<string, string> = {
 
 <section class="about" id="about">
   <div class="about-bg-flowers" aria-hidden="true"></div>
-  
+
   <div class="about-container">
     <div class="about-image-wrapper">
       <div class="about-image parallax-element">
-        {aboutContent.aboutImage ? (
-          <img src={aboutContent.aboutImage} alt="By Tessa Makeup About" class="about-portrait" />
-        ) : (
-          <div class="about-image-placeholder">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="20" y="30" width="60" height="40" rx="5" fill="#D4A5A5"/>
-              <circle cx="70" cy="45" r="8" fill="#E8C4C4"/>
-              <path d="M25 55 L40 45 L55 55 L65 48 L75 55" stroke="#B88A8A" stroke-width="2" fill="none"/>
-            </svg>
-            <span>Foto Close-up<br>Aplikasi Makeup</span>
-          </div>
-        )}
+        {
+          aboutContent.aboutImage ? (
+            <img
+              src={aboutContent.aboutImage}
+              alt="By Tessa Makeup About"
+              class="about-portrait"
+            />
+          ) : (
+            <div class="about-image-placeholder">
+              <svg
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="20"
+                  y="30"
+                  width="60"
+                  height="40"
+                  rx="5"
+                  fill="#D4A5A5"
+                />
+                <circle cx="70" cy="45" r="8" fill="#E8C4C4" />
+                <path
+                  d="M25 55 L40 45 L55 55 L65 48 L75 55"
+                  stroke="#B88A8A"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+              <span>
+                Foto Close-up
+                <br />
+                Aplikasi Makeup
+              </span>
+            </div>
+          )
+        }
       </div>
-      
+
       <!-- Decorative elements -->
       <div class="about-decor about-decor-1"></div>
       <div class="about-decor about-decor-2"></div>
@@ -43,25 +69,30 @@ const iconMap: Record<string, string> = {
     <div class="about-content">
       <span class="about-label">{aboutContent.label}</span>
       <h2 class="about-title">
-        {aboutContent.title}<br>
+        {aboutContent.title}<br />
         <span class="accent-text">{aboutContent.titleAccent}</span>
       </h2>
-      
+
       <div class="floral-divider"></div>
-      
-      <p class="about-text" set:html={aboutContent.description1}></p>
-      <p class="about-text" set:html={aboutContent.description2}></p>
+
+      <p class="about-text" set:html={aboutContent.description1} />
+      <p class="about-text" set:html={aboutContent.description2} />
 
       <div class="about-features">
-        {aboutContent.features.map((feature) => (
-          <div class="about-feature">
-            <div class="feature-icon" set:html={iconMap[feature.icon] || iconMap.shield}></div>
-            <div class="feature-text">
-              <h4>{feature.title}</h4>
-              <p>{feature.description}</p>
+        {
+          aboutContent.features.map((feature) => (
+            <div class="about-feature">
+              <div
+                class="feature-icon"
+                set:html={iconMap[feature.icon] || iconMap.shield}
+              />
+              <div class="feature-text">
+                <h4>{feature.title}</h4>
+                <p>{feature.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
@@ -108,6 +139,7 @@ const iconMap: Record<string, string> = {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-hover);
+    /* height: 400px; */
   }
 
   .about-portrait {
@@ -119,7 +151,11 @@ const iconMap: Record<string, string> = {
 
   .about-image-placeholder {
     aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--dusty-rose-light), var(--cream-dark));
+    background: linear-gradient(
+      135deg,
+      var(--dusty-rose-light),
+      var(--cream-dark)
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -148,7 +184,11 @@ const iconMap: Record<string, string> = {
   .about-decor-1 {
     width: 150px;
     height: 150px;
-    background: linear-gradient(135deg, var(--antique-gold), var(--antique-gold-light));
+    background: linear-gradient(
+      135deg,
+      var(--antique-gold),
+      var(--antique-gold-light)
+    );
     opacity: 0.15;
     top: -30px;
     right: -30px;
@@ -222,7 +262,11 @@ const iconMap: Record<string, string> = {
     flex-shrink: 0;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--dusty-rose-light), var(--dusty-rose));
+    background: linear-gradient(
+      135deg,
+      var(--dusty-rose-light),
+      var(--dusty-rose)
+    );
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -290,13 +334,14 @@ const iconMap: Record<string, string> = {
 
 <script>
   // Simple parallax effect
-  const parallaxElement = document.querySelector('.parallax-element');
-  
-  if (parallaxElement) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const rate = scrolled * 0.1;
-      (parallaxElement as HTMLElement).style.transform = `translateY(${rate}px)`;
-    });
-  }
+  // const parallaxElement = document.querySelector(".parallax-element");
+
+  // if (parallaxElement) {
+  //   window.addEventListener("scroll", () => {
+  //     const scrolled = window.scrollY;
+  //     const rate = scrolled * 0.1;
+  //     (parallaxElement as HTMLElement).style.transform =
+  //       `translateY(${rate}px)`;
+  //   });
+  // }
 </script>
