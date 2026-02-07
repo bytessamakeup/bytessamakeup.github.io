@@ -20,7 +20,7 @@ console.log("----------------------------------------");
 // https://astro.build/config
 export default defineConfig({
   site: "https://bytessamakeup.github.io",
-  base: "/",
+  // base: "/",
   // Use server mode in development for Keystatic admin, static for production
   output: isProduction ? "static" : "server",
   adapter: isProduction
